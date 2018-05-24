@@ -41,6 +41,6 @@
     "react-native-source-maps": "git://github.com/philipshurpik/react-native-source-maps.git#master"
   },
   "peerDependencies": {
-    "react-native-fabric": "*"
+    "react-native-firebase": "*"
   }
 }
