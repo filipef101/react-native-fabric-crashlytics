@@ -2,7 +2,7 @@
 
 import StackTrace from 'stacktrace-js'
 import {initSourceMaps, getStackTrace} from 'react-native-source-maps'
-import { Crashlytics } from 'react-native-fabric'
+import firebase from 'react-native-firebase'
 var assign = require('lodash.assign')
 
 function init (sourcemapName = null) {
@@ -36,7 +36,8 @@ function init (sourcemapName = null) {
     }
     if (trace) {
       e.stack = trace
-      Crashlytics.recordCustomExceptionName(e.message, e.message, e.stack)
+      firebase.crashlytics().log(e.message)
+      firebase.crashlytics().log(e.stack)
       jsParsed = true
     }
     // And then re-throw the exception with the original handler
